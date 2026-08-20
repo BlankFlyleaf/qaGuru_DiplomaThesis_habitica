@@ -162,67 +162,80 @@ public class DailyModalComponent {
 
     @Step("Проверяем заголовок задачи: {title}")
     public DailyModalComponent checkTitle(String title) {
-        titleInput.shouldHave(value(title));
+        titleInput
+                .shouldHave(value(title));
         return this;
     }
 
     @Step("Проверяем заметку: {notes}")
     public DailyModalComponent checkNotes(String notes) {
-        notesInput.shouldHave(value(notes));
+        notesInput
+                .shouldHave(value(notes));
         return this;
     }
 
     @Step("Проверяем сложность: {difficulty}")
     public DailyModalComponent checkDifficulty(Difficulty difficulty) {
-        difficultyDropdown.shouldHave(text(difficulty.getDisplayName()));
+        difficultyDropdown
+                .shouldHave(text(difficulty.getDisplayName()));
         return this;
     }
 
     @Step("Проверяем тег: {tag}")
     public DailyModalComponent checkTag(Tags tag) {
-        getSelectedTag(tag.getDisplayName()).shouldBe(visible);
+        getSelectedTag(tag.getDisplayName())
+                .shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем количество пунктов чеклиста: {count}")
     public DailyModalComponent checkChecklistSize(int count) {
-        checklistItems.shouldHave(size(count));
+        checklistItems
+                .shouldHave(size(count));
         return this;
     }
 
     @Step("Проверяем доступность поля добавления нового пункта")
     public DailyModalComponent checkNewChecklistAvailable() {
-        newChecklistInput.shouldBe(visible).shouldBe(enabled);
+        newChecklistInput
+                .shouldBe(visible)
+                .shouldBe(enabled);
         return this;
     }
 
     @Step("Проверяем выбранную дату: {day} {month} {year}")
     public DailyModalComponent checkDate(int day, MonthData month, int year) {
-        dateInput.shouldHave(value(formattedDate(day, month, year)));
+        dateInput
+                .shouldHave(value(formattedDate(day, month, year)));
         return this;
     }
 
     @Step("Проверяем интервал повторения: {value}")
     public DailyModalComponent checkRepeatInterval(int value) {
-        repeatInput.shouldHave(value(String.valueOf(value)));
+        repeatInput
+                .shouldHave(value(String.valueOf(value)));
         return this;
     }
 
     @Step("Проверяем что день не выбран: {day}")
     public DailyModalComponent checkRepeatDayNotSelected(RepeatDay day) {
-        repeatDays.findBy(text(day.getDisplayName())).shouldNotHave(cssClass("checked"));
+        repeatDays
+                .findBy(text(day.getDisplayName()))
+                .shouldNotHave(cssClass("checked"));
         return this;
     }
 
     @Step("Нажимаем 'Создать'")
     public TaskPage clickCreate() {
-        createButton.shouldBe(enabled).click();
+        createButton
+                .shouldBe(enabled).click();
         return new TaskPage();
     }
 
     @Step("Нажимаем кнопку удаления задачи")
     public DeleteModalComponent clickDeleteButton() {
-        deleteButton.click();
+        deleteButton
+                .click();
         return new DeleteModalComponent();
     }
 }
