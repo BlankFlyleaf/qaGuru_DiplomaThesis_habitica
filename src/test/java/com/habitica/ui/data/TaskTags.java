@@ -1,6 +1,6 @@
 package com.habitica.ui.data;
 
-public enum Tags {
+public enum TaskTags {
     WORK("Работа"),
     HEALTH("Здоровье и образ жизни"),
     EXERCISE("Спортивные упражнения"),
@@ -11,7 +11,7 @@ public enum Tags {
 
     private final String displayName;
 
-    Tags(String displayName) {
+    TaskTags(String displayName) {
         this.displayName = displayName;
     }
 

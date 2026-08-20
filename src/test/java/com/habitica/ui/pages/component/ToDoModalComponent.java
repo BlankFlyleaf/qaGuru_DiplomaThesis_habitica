@@ -4,7 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.habitica.ui.data.Difficulty;
 import com.habitica.ui.data.MonthData;
-import com.habitica.ui.data.Tags;
+import com.habitica.ui.data.TaskTags;
 import com.habitica.ui.pages.TaskPage;
 import io.qameta.allure.Step;
 
@@ -78,7 +78,7 @@ public class ToDoModalComponent {
     }
 
     @Step("Выбираем тег: {tag}")
-    public ToDoModalComponent selectTag(Tags tag) {
+    public ToDoModalComponent selectTag(TaskTags tag) {
         tagsDropdown
                 .click();
         clickTag
@@ -166,7 +166,7 @@ public class ToDoModalComponent {
     }
 
     @Step("Проверяем тег: {tag}")
-    public ToDoModalComponent checkTag(Tags tag) {
+    public ToDoModalComponent checkTag(TaskTags tag) {
         getSelectedTag(tag.getDisplayName())
                 .shouldBe(visible);
         return this;

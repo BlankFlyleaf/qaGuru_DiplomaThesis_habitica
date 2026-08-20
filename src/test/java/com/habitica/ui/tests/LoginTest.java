@@ -1,6 +1,6 @@
 package com.habitica.ui.tests;
 
-import com.habitica.ui.data.TestData;
+import com.habitica.ui.data.StaticTestData;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -22,12 +22,12 @@ public class LoginTest extends UiTestBase {
                 .clickAcceptAllCookie()
                 .checkCookiePanel()
                 .clickLoginButton()
-                .setUsernameValue(TestData.username)
-                .setPasswordValue(TestData.password)
+                .setUsernameValue(StaticTestData.username)
+                .setPasswordValue(StaticTestData.password)
                 .clickSubmitButton();
         task
                 .checkAvatar()
-                .checkCharacterName(TestData.username)
+                .checkCharacterName(StaticTestData.username)
                 .checkCreateTaskButton();
     }
 
@@ -42,12 +42,12 @@ public class LoginTest extends UiTestBase {
                 .clickAcceptAllCookie()
                 .checkCookiePanel()
                 .clickLoginButton()
-                .setUsernameValue(TestData.mail)
-                .setPasswordValue(TestData.password)
+                .setUsernameValue(StaticTestData.mail)
+                .setPasswordValue(StaticTestData.password)
                 .clickSubmitButton();
         task
                 .checkAvatar()
-                .checkCharacterName(TestData.username)
+                .checkCharacterName(StaticTestData.username)
                 .checkCreateTaskButton();
     }
 
@@ -60,10 +60,10 @@ public class LoginTest extends UiTestBase {
         login
                 .openMainPage()
                 .clickLoginButton()
-                .setUsernameValue(TestData.boldUsername)
-                .setPasswordValue(TestData.password)
+                .setUsernameValue(StaticTestData.boldUsername)
+                .setPasswordValue(StaticTestData.password)
                 .clickSubmitButton()
-                .checkAlert(TestData.alertText);
+                .checkAlert(StaticTestData.alertText);
     }
 
     @Test
@@ -91,8 +91,8 @@ public class LoginTest extends UiTestBase {
                 .openMainPage()
                 .clickLoginButton()
                 .setUsernameValue("")
-                .setPasswordValue(TestData.password)
-                .checkBlockedSumbitButton();
+                .setPasswordValue(StaticTestData.password)
+                .checkBlockedSubmitButton();
     }
 
     @Test
@@ -104,9 +104,9 @@ public class LoginTest extends UiTestBase {
         login
                 .openMainPage()
                 .clickLoginButton()
-                .setUsernameValue(TestData.longUsername)
-                .checkValidationError(TestData.sizeUsernameError)
-                .checkBlockedSumbitButton();
+                .setUsernameValue(StaticTestData.longUsername)
+                .checkValidationError(StaticTestData.sizeUsernameError)
+                .checkBlockedSubmitButton();
     }
 
     @Test
@@ -118,9 +118,9 @@ public class LoginTest extends UiTestBase {
         login
                 .openMainPage()
                 .clickLoginButton()
-                .setUsernameValue(TestData.cyrillicUsername)
-                .checkValidationError(TestData.langUsernameError)
-                .checkBlockedSumbitButton();
+                .setUsernameValue(StaticTestData.cyrillicUsername)
+                .checkValidationError(StaticTestData.langUsernameError)
+                .checkBlockedSubmitButton();
     }
 
     @Test
@@ -132,9 +132,9 @@ public class LoginTest extends UiTestBase {
         login
                 .openMainPage()
                 .clickLoginButton()
-                .setUsernameValue(TestData.username)
-                .setPasswordValue(TestData.shortPassword)
-                .checkValidationError(TestData.sizePasswordError)
-                .checkBlockedSumbitButton();
+                .setUsernameValue(StaticTestData.username)
+                .setPasswordValue(StaticTestData.shortPassword)
+                .checkValidationError(StaticTestData.sizePasswordError)
+                .checkBlockedSubmitButton();
     }
 }

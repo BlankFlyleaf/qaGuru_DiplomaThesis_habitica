@@ -27,6 +27,7 @@ public interface TestConfig extends Config {
     String getPageLoadStrategy();
 
     @Key("baseUrl")
+    @DefaultValue("https://habitica.com")
     String getBaseUrl();
 
     @Key("username")

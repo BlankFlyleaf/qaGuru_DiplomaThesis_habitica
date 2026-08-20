@@ -31,8 +31,8 @@ public class RandomUtils {
         return values[getRandomInt(0, values.length - 1)];
     }
 
-    public static Tags getRandomTag() {
-        Tags[] values = Tags.values();
+    public static TaskTags getRandomTag() {
+        TaskTags[] values = TaskTags.values();
         return values[getRandomInt(0, values.length - 1)];
     }
 

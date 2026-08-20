@@ -1,16 +1,21 @@
 package com.habitica.ui.tests;
 
 import com.habitica.ui.data.TaskType;
-import com.habitica.ui.data.TestData;
+import com.habitica.ui.data.StaticTestData;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 @Owner("BlankFlyleaf")
 @Feature("Задачи")
 public class TaskTest extends UiTestBase {
+
+    @BeforeEach
+    void loginBeforeEachTest() {
+        login.openLoginPage()
+                .setUsernameValue(StaticTestData.username)
+                .setPasswordValue(StaticTestData.password)
+                .clickSubmitButton();
+    }
 
     @Test
     @Story("Создание привычки")
@@ -18,11 +23,6 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Создание привычки с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void createHabitTaskTest() {
-        login
-                .openLoginPage()
-                .setUsernameValue(TestData.username)
-                .setPasswordValue(TestData.password)
-                .clickSubmitButton();
         task
                 .createHabitTask()
                 .checkModalVisible()
@@ -50,11 +50,6 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Создание ежедневного дела с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void createDailyTaskTest() {
-        login
-                .openLoginPage()
-                .setUsernameValue(TestData.username)
-                .setPasswordValue(TestData.password)
-                .clickSubmitButton();
         task
                 .createDailyTask()
                 .checkModalVisible()
@@ -93,11 +88,6 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Создание задачи с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void createToDoTaskTest() {
-        login
-                .openLoginPage()
-                .setUsernameValue(TestData.username)
-                .setPasswordValue(TestData.password)
-                .clickSubmitButton();
         task
                 .createToDoTask()
                 .checkModalVisible()
@@ -132,11 +122,6 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Удаление привычки")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void deleteHabitTaskTest() {
-        login
-                .openLoginPage()
-                .setUsernameValue(TestData.username)
-                .setPasswordValue(TestData.password)
-                .clickSubmitButton();
         task
                 .createHabitTask()
                 .setTitle(tD.titleRandom)
@@ -156,11 +141,6 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Удаление ежедневного дела")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void deleteDailyTaskTest() {
-        login
-                .openLoginPage()
-                .setUsernameValue(TestData.username)
-                .setPasswordValue(TestData.password)
-                .clickSubmitButton();
         task
                 .createDailyTask()
                 .setTitle(tD.titleRandom)
@@ -180,11 +160,6 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Удаление задачи (ToDo)")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void deleteToDoTaskTest() {
-        login
-                .openLoginPage()
-                .setUsernameValue(TestData.username)
-                .setPasswordValue(TestData.password)
-                .clickSubmitButton();
         task
                 .createToDoTask()
                 .setTitle(tD.titleRandom)

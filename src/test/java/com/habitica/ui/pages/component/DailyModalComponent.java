@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.habitica.ui.data.Difficulty;
 import com.habitica.ui.data.MonthData;
 import com.habitica.ui.data.RepeatDay;
-import com.habitica.ui.data.Tags;
+import com.habitica.ui.data.TaskTags;
 import com.habitica.ui.pages.TaskPage;
 import io.qameta.allure.Step;
 
@@ -81,7 +81,7 @@ public class DailyModalComponent {
     }
 
     @Step("Выбираем тег: {tag}")
-    public DailyModalComponent selectTag(Tags tag) {
+    public DailyModalComponent selectTag(TaskTags tag) {
         tagsDropdown
                 .click();
         clickTag
@@ -182,7 +182,7 @@ public class DailyModalComponent {
     }
 
     @Step("Проверяем тег: {tag}")
-    public DailyModalComponent checkTag(Tags tag) {
+    public DailyModalComponent checkTag(TaskTags tag) {
         getSelectedTag(tag.getDisplayName())
                 .shouldBe(visible);
         return this;

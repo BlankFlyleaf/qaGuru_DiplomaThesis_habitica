@@ -8,16 +8,16 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
 
-    public final SelenideElement loginButton = $("a[href='/login']");
-    public final SelenideElement usernameForm = $("#usernameInput");
-    public final SelenideElement passwordForm = $("#passwordInput");
-    public final SelenideElement submitButton = $("[type='submit']");
-    public final SelenideElement googleButton = $$(".social-button").findBy(text("Продолжить через Google"));
-    public final SelenideElement appleButton = $$(".social-button").findBy(text("Продолжить через Apple"));
-    public final SelenideElement forgotPasswordButton = $("a.forgot-password");
-    public final SelenideElement registerButton = $("a[href='/register']");
-    public final SelenideElement alertCloud = $(".notification.error");
-    public final SelenideElement validationError = $(".input-error");
+    private final SelenideElement loginButton = $("a[href='/login']");
+    private final SelenideElement usernameForm = $("#usernameInput");
+    private final SelenideElement passwordForm = $("#passwordInput");
+    private final SelenideElement submitButton = $("[type='submit']");
+    private final SelenideElement googleButton = $$(".social-button").findBy(text("Продолжить через Google"));
+    private final SelenideElement appleButton = $$(".social-button").findBy(text("Продолжить через Apple"));
+    private final SelenideElement forgotPasswordButton = $("a.forgot-password");
+    private final SelenideElement registerButton = $("a[href='/register']");
+    private final SelenideElement alertCloud = $(".notification.error");
+    private final SelenideElement validationError = $(".input-error");
     private final SelenideElement acceptAllCookieButton = $("#privacy-banner").$(".btn-primary");
     private final SelenideElement cookiePanel = $("#privacy-banner");
 
@@ -84,7 +84,7 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Проверяем доступность кнопки 'Забыли пароль?'")
+    @Step("Проверяем доступность кнопки 'Нет учётной записи в Habitica? Зарегистрируйтесь'")
     public LoginPage checkRegisterButton() {
         registerButton
                 .shouldBe(enabled)
@@ -92,7 +92,7 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Проверяем доступность кнопки 'Нет учётной записи в Habitica? Зарегистрируйтесь'")
+    @Step("Проверяем доступность кнопки 'Забыли пароль?'")
     public LoginPage checkForgotPasswordButton() {
         forgotPasswordButton
                 .shouldBe(enabled)
@@ -117,7 +117,7 @@ public class LoginPage {
     }
 
     @Step("Проверяем блокировку кнопки сабмита")
-    public LoginPage checkBlockedSumbitButton() {
+    public LoginPage checkBlockedSubmitButton() {
         submitButton
                 .shouldNotBe(enabled)
                 .shouldNotBe(clickable);

@@ -35,6 +35,7 @@ public class TaskPage {
         editButtonDropdown.findBy(visible).click();
     }
 
+
     @Step("Проверяем аватар на странице")
     public TaskPage checkAvatar() {
         userAvatar.shouldBe(visible);

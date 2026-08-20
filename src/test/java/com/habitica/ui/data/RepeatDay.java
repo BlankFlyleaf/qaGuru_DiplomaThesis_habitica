@@ -1,28 +1,22 @@
 package com.habitica.ui.data;
 
 public enum RepeatDay {
-    SUNDAY("вс", 0),
-    MONDAY("пн", 1),
-    TUESDAY("вт", 2),
-    WEDNESDAY("ср", 3),
-    THURSDAY("чт", 4),
-    FRIDAY("пт", 5),
-    SATURDAY("сб", 6);
+    SUNDAY("вс"),
+    MONDAY("пн"),
+    TUESDAY("вт"),
+    WEDNESDAY("ср"),
+    THURSDAY("чт"),
+    FRIDAY("пт"),
+    SATURDAY("сб");
 
     private final String displayName;
-    private final int tabIndex;
 
-    RepeatDay(String displayName, int tabIndex) {
+    RepeatDay(String displayName) {
         this.displayName = displayName;
-        this.tabIndex = tabIndex;
     }
 
     public String getDisplayName() {
         return displayName;
-    }
-
-    public int getTabIndex() {
-        return tabIndex;
     }
 
     @Override
