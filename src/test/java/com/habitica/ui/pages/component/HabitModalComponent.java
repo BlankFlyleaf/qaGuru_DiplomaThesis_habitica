@@ -15,18 +15,18 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class HabitModalComponent {
 
-    private final SelenideElement modalWindow        = $(".modal.show");
-    private final SelenideElement titleInput         = $("input.input-title");
-    private final SelenideElement notesInput         = $("textarea.input-notes");
-    private final SelenideElement createButton       = $("button.btn-footer");
+    private final SelenideElement modalWindow = $(".modal.show");
+    private final SelenideElement titleInput = $("input.input-title");
+    private final SelenideElement notesInput = $("textarea.input-notes");
+    private final SelenideElement createButton = $("button.btn-footer");
     private final SelenideElement difficultyDropdown = $(".difficulty-select .dropdown-toggle");
-    private final SelenideElement tagsDropdown       = $(".tags-select .dropdown-toggle");
-    private final SelenideElement counterDropdown    = $(".array-select .dropdown-toggle");
-    private final SelenideElement deleteButton       = $("button.delete-task-btn");
+    private final SelenideElement tagsDropdown = $(".tags-select .dropdown-toggle");
+    private final SelenideElement counterDropdown = $(".array-select .dropdown-toggle");
+    private final SelenideElement deleteButton = $("button.delete-task-btn");
 
     private final ElementsCollection clickHabitType = $$("button.habit-option-container");
-    private final ElementsCollection clickDropdown  = $$("a.dropdown-item");
-    private final ElementsCollection clickTag       = $$("button.dropdown-item");
+    private final ElementsCollection clickDropdown = $$("a.dropdown-item");
+    private final ElementsCollection clickTag = $$("button.dropdown-item");
 
     private SelenideElement getSelectedTag(String tagName) {
         return $(".multi-item[title='" + tagName + "']");

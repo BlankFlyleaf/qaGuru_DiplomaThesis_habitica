@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class DeleteModalComponent   {
+public class DeleteModalComponent {
 
     private final SelenideElement confirmDeleteButton = $(".btn.btn-danger");
 

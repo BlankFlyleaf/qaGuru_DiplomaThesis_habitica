@@ -16,31 +16,28 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class DailyModalComponent {
 
-    private final SelenideElement modalWindow        = $(".modal.show");
-    private final SelenideElement titleInput         = $("input.input-title");
-    private final SelenideElement notesInput         = $("textarea.input-notes");
-    private final SelenideElement createButton       = $("button.btn-footer");
+    private final SelenideElement modalWindow = $(".modal.show");
+    private final SelenideElement titleInput = $("input.input-title");
+    private final SelenideElement notesInput = $("textarea.input-notes");
+    private final SelenideElement createButton = $("button.btn-footer");
     private final SelenideElement difficultyDropdown = $(".difficulty-select .dropdown-toggle");
-    private final SelenideElement tagsDropdown       = $(".tags-select .dropdown-toggle");
-    private final SelenideElement deleteButton       = $("button.delete-task-btn");
+    private final SelenideElement tagsDropdown = $(".tags-select .dropdown-toggle");
+    private final SelenideElement deleteButton = $("button.delete-task-btn");
+    private final SelenideElement newChecklistInput = $("input[placeholder='Новый пункт списка']");
+    private final SelenideElement calendarButton = $(".vdp-datepicker__calendar-button");
+    private final SelenideElement calendar = $(".vdp-datepicker__calendar");
+    private final SelenideElement dateInput = $("input.form-control[readonly]");
+    private final SelenideElement monthButton = $(".day__month_btn.up");
+    private final SelenideElement yearButton = $(".month__year_btn.up");
+    private final SelenideElement repeatInput = $(".input-group input[type='number']");
 
     private final ElementsCollection clickDropdown = $$("a.dropdown-item");
-    private final ElementsCollection clickTag      = $$("button.dropdown-item");
-
-    private final SelenideElement newChecklistInput = $("input[placeholder='Новый пункт списка']");
+    private final ElementsCollection clickTag = $$("button.dropdown-item");
     private final ElementsCollection checklistItems = $$(".checklist-group:not(.new-checklist) input.checklist-item");
-
-    private final SelenideElement repeatInput    = $(".input-group input[type='number']");
-    private final ElementsCollection repeatDays  = $$("button.toggle-checkbox");
-
-    private final SelenideElement calendarButton = $(".vdp-datepicker__calendar-button");
-    private final SelenideElement calendar       = $(".vdp-datepicker__calendar");
-    private final SelenideElement dateInput      = $("input.form-control[readonly]");
-    private final SelenideElement monthButton    = $(".day__month_btn.up");
-    private final SelenideElement yearButton     = $(".month__year_btn.up");
-    private final ElementsCollection days        = $$(".cell.day:not(.blank)");
-    private final ElementsCollection months      = $$(".cell.month");
-    private final ElementsCollection years       = $$(".cell.year");
+    private final ElementsCollection repeatDays = $$("button.toggle-checkbox");
+    private final ElementsCollection days = $$(".cell.day:not(.blank)");
+    private final ElementsCollection months = $$(".cell.month");
+    private final ElementsCollection years = $$(".cell.year");
 
     private SelenideElement getSelectedTag(String tagName) {
         return $(".multi-item[title='" + tagName + "']");

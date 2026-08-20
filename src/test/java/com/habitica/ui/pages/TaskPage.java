@@ -14,10 +14,11 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class TaskPage {
 
-    private final SelenideElement userAvatar            = $(".avatar-container");
-    private final SelenideElement createTaskButton      = $("#create-task-btn");
-    private final ElementsCollection dropdownMenu       = $$(".dropdown-item");
-    private final ElementsCollection characterName      = $$("span");
+    private final SelenideElement userAvatar = $(".avatar-container");
+    private final SelenideElement createTaskButton = $("#create-task-btn");
+
+    private final ElementsCollection dropdownMenu = $$(".dropdown-item");
+    private final ElementsCollection characterName = $$("span");
     private final ElementsCollection editButtonDropdown = $$(".edit-task-item");
 
     private ElementsCollection taskCards(TaskType taskType) {
