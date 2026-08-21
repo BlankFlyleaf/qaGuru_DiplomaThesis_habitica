@@ -1,8 +1,11 @@
 package com.habitica.ui.data;
 
-import com.habitica.ui.utils.RandomUtils;
+import com.habitica.common.data.Difficulty;
+import com.habitica.common.data.TaskTags;
+import com.habitica.common.utils.RandomUtils;
+import com.habitica.ui.utils.UiRandomUtils;
 
-public class DynamicTestData {
+public class DynamicUiTestData {
     public String titleRandom;
     public String noteRandom;
     public String firstListItem;
@@ -18,20 +21,21 @@ public class DynamicTestData {
     public ResetCounter counterRandom;
     public RepeatDay repeatRandom;
 
-    public void randomVariableGeneration() {
+    public void randomUiVariableGeneration() {
         titleRandom = RandomUtils.getRandomString(10);
         noteRandom = RandomUtils.getRandomString(120);
         firstListItem = RandomUtils.getRandomString(5);
         secondListItem = RandomUtils.getRandomString(5);
-        typeRandom = RandomUtils.getRandomHabitType();
         difficultyRandom = RandomUtils.getRandomDifficulty();
         firstTagRandom = RandomUtils.getRandomTag();
         secondTagRandom = RandomUtils.getRandomTag();
-        counterRandom = RandomUtils.getRandomResetCounter();
-        repeatRandom = RandomUtils.getRandomRepeatDay();
         repeatIntervalRandom = RandomUtils.getRandomInt(1, 50);
         dayRandom = RandomUtils.getRandomInt(1, 28);
-        monthRandom = RandomUtils.getRandomMonth();
         yearRandom = RandomUtils.getRandomInt(2020, 2029);
+
+        counterRandom = UiRandomUtils.getRandomResetCounter();
+        typeRandom = UiRandomUtils.getRandomHabitType();
+        repeatRandom = UiRandomUtils.getRandomRepeatDay();
+        monthRandom = UiRandomUtils.getRandomMonth();
     }
 }

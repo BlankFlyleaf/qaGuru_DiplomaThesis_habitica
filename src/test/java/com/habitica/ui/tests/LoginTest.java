@@ -1,14 +1,16 @@
 package com.habitica.ui.tests;
 
-import com.habitica.ui.data.StaticTestData;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
+import static com.habitica.common.data.CommonTestData.*;
+import static com.habitica.ui.data.StaticUiTestData.*;
+
 @Owner("BlankFlyleaf")
-@Feature("Авторизация")
+@Feature("Авторизация UI")
 public class LoginTest extends UiTestBase {
 
     @Test
@@ -17,17 +19,17 @@ public class LoginTest extends UiTestBase {
     @DisplayName("Успешная авторизация с учетной записью пользователя")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void successfulUsernameLoginTest() {
-        login
+        loginUi
                 .openMainPage()
                 .clickAcceptAllCookie()
                 .checkCookiePanel()
                 .clickLoginButton()
-                .setUsernameValue(StaticTestData.username)
-                .setPasswordValue(StaticTestData.password)
+                .setUsernameValue(username)
+                .setPasswordValue(password)
                 .clickSubmitButton();
-        task
+        taskUi
                 .checkAvatar()
-                .checkCharacterName(StaticTestData.username)
+                .checkCharacterName(username)
                 .checkCreateTaskButton();
     }
 
@@ -37,17 +39,17 @@ public class LoginTest extends UiTestBase {
     @DisplayName("Успешная авторизация с учетной электронной почтой пользователя")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void successfulMailLoginTest() {
-        login
+        loginUi
                 .openMainPage()
                 .clickAcceptAllCookie()
                 .checkCookiePanel()
                 .clickLoginButton()
-                .setUsernameValue(StaticTestData.mail)
-                .setPasswordValue(StaticTestData.password)
+                .setUsernameValue(mail)
+                .setPasswordValue(password)
                 .clickSubmitButton();
-        task
+        taskUi
                 .checkAvatar()
-                .checkCharacterName(StaticTestData.username)
+                .checkCharacterName(username)
                 .checkCreateTaskButton();
     }
 
@@ -57,13 +59,13 @@ public class LoginTest extends UiTestBase {
     @DisplayName("Проверка появления алерта при нарушении регистра")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void wrongRegisterLoginTest() {
-        login
+        loginUi
                 .openMainPage()
                 .clickLoginButton()
-                .setUsernameValue(StaticTestData.boldUsername)
-                .setPasswordValue(StaticTestData.password)
+                .setUsernameValue(boldUsername)
+                .setPasswordValue(password)
                 .clickSubmitButton()
-                .checkAlert(StaticTestData.alertText);
+                .checkAlert(alertText);
     }
 
     @Test
@@ -72,7 +74,7 @@ public class LoginTest extends UiTestBase {
     @DisplayName("Проверка доступности кнопок на странице логина")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void checkButtonOnLoginPageTest() {
-        login
+        loginUi
                 .openMainPage()
                 .clickLoginButton()
                 .checkGoogleButton()
@@ -87,11 +89,11 @@ public class LoginTest extends UiTestBase {
     @DisplayName("Проверка валидации пустого значения в пользовательском имени")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void emptyUsernameValidationTest() {
-        login
+        loginUi
                 .openMainPage()
                 .clickLoginButton()
                 .setUsernameValue("")
-                .setPasswordValue(StaticTestData.password)
+                .setPasswordValue(password)
                 .checkBlockedSubmitButton();
     }
 
@@ -101,11 +103,11 @@ public class LoginTest extends UiTestBase {
     @DisplayName("Проверка валидации превышения символов в пользовательском имени")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void sizeUsernameValidationTest() {
-        login
+        loginUi
                 .openMainPage()
                 .clickLoginButton()
-                .setUsernameValue(StaticTestData.longUsername)
-                .checkValidationError(StaticTestData.sizeUsernameError)
+                .setUsernameValue(longUsername)
+                .checkValidationError(sizeUsernameError)
                 .checkBlockedSubmitButton();
     }
 
@@ -115,11 +117,11 @@ public class LoginTest extends UiTestBase {
     @DisplayName("Проверка валидации кириллических символов в пользовательском имени")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void languageUsernameValidationTest() {
-        login
+        loginUi
                 .openMainPage()
                 .clickLoginButton()
-                .setUsernameValue(StaticTestData.cyrillicUsername)
-                .checkValidationError(StaticTestData.langUsernameError)
+                .setUsernameValue(cyrillicUsername)
+                .checkValidationError(langUsernameError)
                 .checkBlockedSubmitButton();
     }
 
@@ -129,12 +131,12 @@ public class LoginTest extends UiTestBase {
     @DisplayName("Проверка валидации длины пароля")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void sizePasswordValidationTest() {
-        login
+        loginUi
                 .openMainPage()
                 .clickLoginButton()
-                .setUsernameValue(StaticTestData.username)
-                .setPasswordValue(StaticTestData.shortPassword)
-                .checkValidationError(StaticTestData.sizePasswordError)
+                .setUsernameValue(username)
+                .setPasswordValue(shortPassword)
+                .checkValidationError(sizePasswordError)
                 .checkBlockedSubmitButton();
     }
 }

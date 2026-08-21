@@ -1,4 +1,4 @@
-package com.habitica.ui.data;
+package com.habitica.common.data;
 
 public enum TaskType {
     HABIT("habit", "привычку"),

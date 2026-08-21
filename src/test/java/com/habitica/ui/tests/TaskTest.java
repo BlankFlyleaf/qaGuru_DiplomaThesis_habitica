@@ -1,9 +1,11 @@
 package com.habitica.ui.tests;
 
-import com.habitica.ui.data.TaskType;
-import com.habitica.ui.data.StaticTestData;
+import com.habitica.common.data.TaskType;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+
+import static com.habitica.common.data.CommonTestData.password;
+import static com.habitica.common.data.CommonTestData.username;
 
 @Owner("BlankFlyleaf")
 @Feature("Задачи")
@@ -11,9 +13,9 @@ public class TaskTest extends UiTestBase {
 
     @BeforeEach
     void loginBeforeEachTest() {
-        login.openLoginPage()
-                .setUsernameValue(StaticTestData.username)
-                .setPasswordValue(StaticTestData.password)
+        loginUi.openLoginPage()
+                .setUsernameValue(username)
+                .setPasswordValue(password)
                 .clickSubmitButton();
     }
 
@@ -23,25 +25,25 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Создание привычки с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void createHabitTaskTest() {
-        task
+        taskUi
                 .createHabitTask()
                 .checkModalVisible()
-                .setTitle(tD.titleRandom)
-                .setNotes(tD.noteRandom)
-                .selectHabitType(tD.typeRandom)
-                .selectDifficulty(tD.difficultyRandom)
-                .selectTag(tD.firstTagRandom)
-                .selectTag(tD.secondTagRandom)
-                .selectResetCounter(tD.counterRandom)
+                .setTitle(testDataUi.titleRandom)
+                .setNotes(testDataUi.noteRandom)
+                .selectHabitType(testDataUi.typeRandom)
+                .selectDifficulty(testDataUi.difficultyRandom)
+                .selectTag(testDataUi.firstTagRandom)
+                .selectTag(testDataUi.secondTagRandom)
+                .selectResetCounter(testDataUi.counterRandom)
                 .clickCreate()
-                .editHabitTask(tD.titleRandom)
-                .checkTitle(tD.titleRandom)
-                .checkNotes(tD.noteRandom)
-                .checkHabitType(tD.typeRandom)
-                .checkDifficulty(tD.difficultyRandom)
-                .checkTag(tD.firstTagRandom)
-                .checkTag(tD.secondTagRandom)
-                .checkResetCounter(tD.counterRandom);
+                .editHabitTask(testDataUi.titleRandom)
+                .checkTitle(testDataUi.titleRandom)
+                .checkNotes(testDataUi.noteRandom)
+                .checkHabitType(testDataUi.typeRandom)
+                .checkDifficulty(testDataUi.difficultyRandom)
+                .checkTag(testDataUi.firstTagRandom)
+                .checkTag(testDataUi.secondTagRandom)
+                .checkResetCounter(testDataUi.counterRandom);
     }
 
     @Test
@@ -50,36 +52,36 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Создание ежедневного дела с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void createDailyTaskTest() {
-        task
+        taskUi
                 .createDailyTask()
                 .checkModalVisible()
-                .setTitle(tD.titleRandom)
-                .setNotes(tD.noteRandom)
-                .addChecklistItem(tD.firstListItem)
-                .addChecklistItem(tD.secondListItem)
-                .selectDifficulty(tD.difficultyRandom)
+                .setTitle(testDataUi.titleRandom)
+                .setNotes(testDataUi.noteRandom)
+                .addChecklistItem(testDataUi.firstListItem)
+                .addChecklistItem(testDataUi.secondListItem)
+                .selectDifficulty(testDataUi.difficultyRandom)
                 .openCalendar()
                 .checkCalendarVisible()
                 .openCalendarOnYear()
-                .selectYear(tD.yearRandom)
-                .selectMonth(tD.monthRandom)
-                .selectDay(tD.dayRandom)
-                .setRepeatInterval(tD.repeatIntervalRandom)
-                .selectRepeatDay(tD.repeatRandom)
-                .selectTag(tD.firstTagRandom)
-                .selectTag(tD.secondTagRandom)
+                .selectYear(testDataUi.yearRandom)
+                .selectMonth(testDataUi.monthRandom)
+                .selectDay(testDataUi.dayRandom)
+                .setRepeatInterval(testDataUi.repeatIntervalRandom)
+                .selectRepeatDay(testDataUi.repeatRandom)
+                .selectTag(testDataUi.firstTagRandom)
+                .selectTag(testDataUi.secondTagRandom)
                 .clickCreate()
-                .editDailyTask(tD.titleRandom)
-                .checkTitle(tD.titleRandom)
-                .checkNotes(tD.noteRandom)
+                .editDailyTask(testDataUi.titleRandom)
+                .checkTitle(testDataUi.titleRandom)
+                .checkNotes(testDataUi.noteRandom)
                 .checkChecklistSize(2)
                 .checkNewChecklistAvailable()
-                .checkDifficulty(tD.difficultyRandom)
-                .checkDate(tD.dayRandom, tD.monthRandom, tD.yearRandom)
-                .checkRepeatInterval(tD.repeatIntervalRandom)
-                .checkRepeatDayNotSelected(tD.repeatRandom)
-                .checkTag(tD.firstTagRandom)
-                .checkTag(tD.secondTagRandom);
+                .checkDifficulty(testDataUi.difficultyRandom)
+                .checkDate(testDataUi.dayRandom, testDataUi.monthRandom, testDataUi.yearRandom)
+                .checkRepeatInterval(testDataUi.repeatIntervalRandom)
+                .checkRepeatDayNotSelected(testDataUi.repeatRandom)
+                .checkTag(testDataUi.firstTagRandom)
+                .checkTag(testDataUi.secondTagRandom);
     }
 
     @Test
@@ -88,32 +90,32 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Создание задачи с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void createToDoTaskTest() {
-        task
+        taskUi
                 .createToDoTask()
                 .checkModalVisible()
-                .setTitle(tD.titleRandom)
-                .setNotes(tD.noteRandom)
-                .addChecklistItem(tD.firstListItem)
-                .addChecklistItem(tD.secondListItem)
-                .selectDifficulty(tD.difficultyRandom)
+                .setTitle(testDataUi.titleRandom)
+                .setNotes(testDataUi.noteRandom)
+                .addChecklistItem(testDataUi.firstListItem)
+                .addChecklistItem(testDataUi.secondListItem)
+                .selectDifficulty(testDataUi.difficultyRandom)
                 .openCalendar()
                 .checkCalendarVisible()
                 .openCalendarOnYear()
-                .selectYear(tD.yearRandom)
-                .selectMonth(tD.monthRandom)
-                .selectDay(tD.dayRandom)
-                .selectTag(tD.firstTagRandom)
-                .selectTag(tD.secondTagRandom)
+                .selectYear(testDataUi.yearRandom)
+                .selectMonth(testDataUi.monthRandom)
+                .selectDay(testDataUi.dayRandom)
+                .selectTag(testDataUi.firstTagRandom)
+                .selectTag(testDataUi.secondTagRandom)
                 .clickCreate()
-                .editToDoTask(tD.titleRandom)
-                .checkTitle(tD.titleRandom)
-                .checkNotes(tD.noteRandom)
+                .editToDoTask(testDataUi.titleRandom)
+                .checkTitle(testDataUi.titleRandom)
+                .checkNotes(testDataUi.noteRandom)
                 .checkChecklistSize(2)
                 .checkNewChecklistAvailable()
-                .checkDifficulty(tD.difficultyRandom)
-                .checkDate(tD.dayRandom, tD.monthRandom, tD.yearRandom)
-                .checkTag(tD.firstTagRandom)
-                .checkTag(tD.secondTagRandom);
+                .checkDifficulty(testDataUi.difficultyRandom)
+                .checkDate(testDataUi.dayRandom, testDataUi.monthRandom, testDataUi.yearRandom)
+                .checkTag(testDataUi.firstTagRandom)
+                .checkTag(testDataUi.secondTagRandom);
     }
 
     @Test
@@ -122,17 +124,17 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Удаление привычки")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void deleteHabitTaskTest() {
-        task
+        taskUi
                 .createHabitTask()
-                .setTitle(tD.titleRandom)
-                .setNotes(tD.noteRandom)
+                .setTitle(testDataUi.titleRandom)
+                .setNotes(testDataUi.noteRandom)
                 .clickCreate()
-                .editHabitTask(tD.titleRandom)
-                .checkTitle(tD.titleRandom)
-                .checkNotes(tD.noteRandom)
+                .editHabitTask(testDataUi.titleRandom)
+                .checkTitle(testDataUi.titleRandom)
+                .checkNotes(testDataUi.noteRandom)
                 .clickDeleteButton()
                 .confirmDelete()
-                .checkTaskCardDeleted(TaskType.HABIT, tD.titleRandom);
+                .checkTaskCardDeleted(TaskType.HABIT, testDataUi.titleRandom);
     }
 
     @Test
@@ -141,17 +143,17 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Удаление ежедневного дела")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void deleteDailyTaskTest() {
-        task
+        taskUi
                 .createDailyTask()
-                .setTitle(tD.titleRandom)
-                .setNotes(tD.noteRandom)
+                .setTitle(testDataUi.titleRandom)
+                .setNotes(testDataUi.noteRandom)
                 .clickCreate()
-                .editDailyTask(tD.titleRandom)
-                .checkTitle(tD.titleRandom)
-                .checkNotes(tD.noteRandom)
+                .editDailyTask(testDataUi.titleRandom)
+                .checkTitle(testDataUi.titleRandom)
+                .checkNotes(testDataUi.noteRandom)
                 .clickDeleteButton()
                 .confirmDelete()
-                .checkTaskCardDeleted(TaskType.DAILY, tD.titleRandom);
+                .checkTaskCardDeleted(TaskType.DAILY, testDataUi.titleRandom);
     }
 
     @Test
@@ -160,16 +162,16 @@ public class TaskTest extends UiTestBase {
     @DisplayName("Удаление задачи (ToDo)")
     @Tags({@Tag("UiTests"), @Tag("Regression")})
     public void deleteToDoTaskTest() {
-        task
+        taskUi
                 .createToDoTask()
-                .setTitle(tD.titleRandom)
-                .setNotes(tD.noteRandom)
+                .setTitle(testDataUi.titleRandom)
+                .setNotes(testDataUi.noteRandom)
                 .clickCreate()
-                .editToDoTask(tD.titleRandom)
-                .checkTitle(tD.titleRandom)
-                .checkNotes(tD.noteRandom)
+                .editToDoTask(testDataUi.titleRandom)
+                .checkTitle(testDataUi.titleRandom)
+                .checkNotes(testDataUi.noteRandom)
                 .clickDeleteButton()
                 .confirmDelete()
-                .checkTaskCardDeleted(TaskType.TODO, tD.titleRandom);
+                .checkTaskCardDeleted(TaskType.TODO, testDataUi.titleRandom);
     }
 }

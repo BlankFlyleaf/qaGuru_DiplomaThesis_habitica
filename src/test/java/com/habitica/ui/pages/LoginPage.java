@@ -21,7 +21,7 @@ public class LoginPage {
     private final SelenideElement acceptAllCookieButton = $("#privacy-banner").$(".btn-primary");
     private final SelenideElement cookiePanel = $("#privacy-banner");
 
-    @Step("Открываем страницу главную страницу")
+    @Step("Открываем главную страницу")
     public LoginPage openMainPage() {
         open("/static/home");
         return this;

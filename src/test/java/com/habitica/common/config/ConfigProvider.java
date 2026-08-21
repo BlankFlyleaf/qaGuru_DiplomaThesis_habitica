@@ -1,4 +1,4 @@
-package com.habitica.ui.config;
+package com.habitica.common.config;
 
 import org.aeonbits.owner.ConfigFactory;
 

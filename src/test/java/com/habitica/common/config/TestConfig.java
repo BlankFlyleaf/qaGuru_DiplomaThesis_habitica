@@ -1,4 +1,4 @@
-package com.habitica.ui.config;
+package com.habitica.common.config;
 
 import org.aeonbits.owner.Config;
 
@@ -41,4 +41,7 @@ public interface TestConfig extends Config {
 
     @Key("boldUsername")
     String getBoldUsername();
+
+    @Key("userId")
+    String getUserId();
 }

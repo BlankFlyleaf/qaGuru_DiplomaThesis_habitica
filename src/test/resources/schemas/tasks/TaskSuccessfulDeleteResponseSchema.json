@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "data": {
+      "type": "object",
+      "properties": {}
+    },
+    "notifications": {
+      "type": "array",
+      "items": {}
+    },
+    "userV": {
+      "type": "number"
+    },
+    "appVersion": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "success",
+    "data",
+    "notifications",
+    "userV",
+    "appVersion"
+  ]
+}

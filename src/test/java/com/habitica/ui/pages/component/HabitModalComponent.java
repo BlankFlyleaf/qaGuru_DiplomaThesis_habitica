@@ -2,10 +2,10 @@ package com.habitica.ui.pages.component;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.habitica.ui.data.Difficulty;
+import com.habitica.common.data.Difficulty;
+import com.habitica.common.data.TaskTags;
 import com.habitica.ui.data.HabitType;
 import com.habitica.ui.data.ResetCounter;
-import com.habitica.ui.data.TaskTags;
 import com.habitica.ui.pages.TaskPage;
 import io.qameta.allure.Step;
 

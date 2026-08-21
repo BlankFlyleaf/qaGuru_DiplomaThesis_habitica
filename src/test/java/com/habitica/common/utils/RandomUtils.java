@@ -1,6 +1,7 @@
-package com.habitica.ui.utils;
+package com.habitica.common.utils;
 
-import com.habitica.ui.data.*;
+import com.habitica.common.data.Difficulty;
+import com.habitica.common.data.TaskTags;
 
 import java.security.SecureRandom;
 import java.util.concurrent.ThreadLocalRandom;
@@ -21,11 +22,6 @@ public class RandomUtils {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 
-    public static HabitType getRandomHabitType() {
-        HabitType[] values = HabitType.values();
-        return values[getRandomInt(0, values.length - 1)];
-    }
-
     public static Difficulty getRandomDifficulty() {
         Difficulty[] values = Difficulty.values();
         return values[getRandomInt(0, values.length - 1)];
@@ -36,18 +32,4 @@ public class RandomUtils {
         return values[getRandomInt(0, values.length - 1)];
     }
 
-    public static ResetCounter getRandomResetCounter() {
-        ResetCounter[] values = ResetCounter.values();
-        return values[getRandomInt(0, values.length - 1)];
-    }
-
-    public static MonthData getRandomMonth() {
-        MonthData[] months = MonthData.values();
-        return months[getRandomInt(0, months.length - 1)];
-    }
-
-    public static RepeatDay getRandomRepeatDay() {
-        RepeatDay[] values = RepeatDay.values();
-        return values[getRandomInt(0, values.length - 1)];
-    }
 }

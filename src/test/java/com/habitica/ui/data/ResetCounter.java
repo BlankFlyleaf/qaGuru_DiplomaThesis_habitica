@@ -7,8 +7,8 @@ public enum ResetCounter {
 
     private final String displayName;
 
-    ResetCounter(String displayName) {
-        this.displayName = displayName;
+    ResetCounter(String ruDisplayName) {
+        this.displayName = ruDisplayName;
     }
 
     public String getDisplayName() {

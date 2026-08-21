@@ -2,7 +2,7 @@ package com.habitica.ui.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.habitica.ui.data.TaskType;
+import com.habitica.common.data.TaskType;
 import com.habitica.ui.pages.component.DailyModalComponent;
 import com.habitica.ui.pages.component.HabitModalComponent;
 import com.habitica.ui.pages.component.ToDoModalComponent;
@@ -26,31 +26,37 @@ public class TaskPage {
     }
 
     private void openCreateMenu(TaskType taskType) {
-        createTaskButton.click();
-        dropdownMenu.findBy(text(taskType.dropdownTitle)).click();
+        createTaskButton
+                .click();
+        dropdownMenu
+                .findBy(text(taskType.dropdownTitle)).click();
     }
 
     private void openEditMenu(TaskType taskType, String cardName) {
         taskCards(taskType).findBy(text(cardName)).$(".habitica-menu-dropdown").click();
-        editButtonDropdown.findBy(visible).click();
+        editButtonDropdown
+                .findBy(visible).click();
     }
 
 
     @Step("Проверяем аватар на странице")
     public TaskPage checkAvatar() {
-        userAvatar.shouldBe(visible);
+        userAvatar
+                .shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем на странице имя персонажа: {name}")
     public TaskPage checkCharacterName(String name) {
-        characterName.findBy(text(name)).shouldBe(visible);
+        characterName
+                .findBy(text(name)).shouldBe(visible);
         return this;
     }
 
     @Step("Проверяем наличие кнопки 'Добавить задачу' на странице")
     public TaskPage checkCreateTaskButton() {
-        createTaskButton.shouldBe(visible).shouldBe(clickable);
+        createTaskButton
+                .shouldBe(visible).shouldBe(clickable);
         return this;
     }
 
@@ -92,7 +98,8 @@ public class TaskPage {
 
     @Step("Проверяем удаление карточки '{cardName}' в столбце '{taskType}'")
     public TaskPage checkTaskCardDeleted(TaskType taskType, String cardName) {
-        taskCards(taskType).findBy(text(cardName)).shouldNot(exist);
+        taskCards(taskType)
+                .findBy(text(cardName)).shouldNot(exist);
         return this;
     }
 }

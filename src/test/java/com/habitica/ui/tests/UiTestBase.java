@@ -3,8 +3,8 @@ package com.habitica.ui.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import com.habitica.ui.config.ConfigProvider;
-import com.habitica.ui.data.DynamicTestData;
+import com.habitica.common.config.ConfigProvider;
+import com.habitica.ui.data.DynamicUiTestData;
 import com.habitica.ui.helpers.Attach;
 import com.habitica.ui.pages.LoginPage;
 import com.habitica.ui.pages.TaskPage;
@@ -18,10 +18,9 @@ import java.util.Map;
 
 public class UiTestBase {
 
-    LoginPage login = new LoginPage();
-    TaskPage task = new TaskPage();
-    DynamicTestData tD = new DynamicTestData();
-
+    LoginPage loginUi = new LoginPage();
+    TaskPage taskUi = new TaskPage();
+    DynamicUiTestData testDataUi = new DynamicUiTestData();
 
     @BeforeAll
     static void uiTestConfig() {
@@ -47,7 +46,7 @@ public class UiTestBase {
 
     @BeforeEach
     void generateRandomVariableForTests() {
-        tD.randomVariableGeneration();
+        testDataUi.randomUiVariableGeneration();
     }
 
     @AfterEach
