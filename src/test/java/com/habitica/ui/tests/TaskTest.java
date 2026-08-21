@@ -8,7 +8,7 @@ import static com.habitica.common.data.CommonTestData.password;
 import static com.habitica.common.data.CommonTestData.username;
 
 @Owner("BlankFlyleaf")
-@Feature("Задачи")
+@Feature("Задачи UI")
 public class TaskTest extends UiTestBase {
 
     @BeforeEach

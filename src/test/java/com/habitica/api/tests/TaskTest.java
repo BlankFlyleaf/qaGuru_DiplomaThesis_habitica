@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @Owner("BlankFlyleaf")
-@Feature("Задачи")
+@Feature("Задачи API")
 public class TaskTest extends ApiTestBase {
 
     @EnumSource(TaskType.class)
