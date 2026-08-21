@@ -20,7 +20,7 @@ public class TaskTest extends UiTestBase {
     }
 
     @Test
-    @Story("Создание привычки")
+    @Story("Создание задачи")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Создание привычки с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
@@ -47,7 +47,7 @@ public class TaskTest extends UiTestBase {
     }
 
     @Test
-    @Story("Создание ежедневного дела")
+    @Story("Создание задачи")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Создание ежедневного дела с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
@@ -87,7 +87,7 @@ public class TaskTest extends UiTestBase {
     @Test
     @Story("Создание задачи")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Создание задачи с заполнением всех полей")
+    @DisplayName("Создание задачи (ToDo) с заполнением всех полей")
     @Tags({@Tag("UiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void createToDoTaskTest() {
         taskUi
