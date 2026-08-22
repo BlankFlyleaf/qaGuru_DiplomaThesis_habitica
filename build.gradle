@@ -45,23 +45,20 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
-
-    systemProperties(System.getProperties())
     def tags = System.getProperty('includeTags')
-    if (tags) {
-        includeTags tags
+    useJUnitPlatform {
+        if (tags) {
+            includeTags tags
+        }
     }
+    systemProperties(System.getProperties())
 }
 
 tasks.withType(Test) {
-    useJUnitPlatform()
-
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
     }
-
 }
