@@ -45,6 +45,7 @@ public class UiTestBase {
             options.setExperimentalOption("prefs", Map.of(
                     "intl.accept_languages", "ru,ru-RU"
             ));
+            capabilities.setCapability(ChromeOptions.CAPABILITY, options);
             Configuration.browserCapabilities = capabilities;
         }
         SelenideLogger.addListener("allure", new AllureSelenide());
