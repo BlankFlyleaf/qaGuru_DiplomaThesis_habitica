@@ -228,8 +228,8 @@
 
 <div align="center">
 
-*⚔️ Квест пройден. Баги побеждены. Герой повышает уровень. 🏆*
+*⚔️ Квест пройден. Баги побеждены. 🏆*
 
-**QA.GURU Diploma Project** · [@BlankFlyleaf](https://github.com/BlankFlyleaf)
+[@BlankFlyleaf](https://github.com/BlankFlyleaf)
 
 </div>
