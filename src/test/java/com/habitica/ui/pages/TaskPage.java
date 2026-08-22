@@ -34,6 +34,7 @@ public class TaskPage {
         SelenideElement taskCard = taskCards(taskType).findBy(text(cardName));
         taskCard.$(".task-title")
                 .click();
+
     }
 
     @Step("Проверяем аватар на странице")
