@@ -19,7 +19,6 @@ public class TaskPage {
 
     private final ElementsCollection dropdownMenu = $$(".dropdown-item");
     private final ElementsCollection characterName = $$("span");
-    private final ElementsCollection editButtonDropdown = $$(".edit-task-item");
 
     private ElementsCollection taskCards(TaskType taskType) {
         return $$(".task.type_" + taskType.cssType);
@@ -33,9 +32,12 @@ public class TaskPage {
     }
 
     private void openEditMenu(TaskType taskType, String cardName) {
-        taskCards(taskType).findBy(text(cardName)).$(".habitica-menu-dropdown").click();
-        editButtonDropdown
-                .findBy(visible).click();
+        SelenideElement taskCard = taskCards(taskType).findBy(text(cardName));
+        taskCard.$(".habitica-menu-dropdown")
+                .click();
+        taskCard.$(".edit-task-item")
+                .shouldBe(visible)
+                .click();
     }
 
 
