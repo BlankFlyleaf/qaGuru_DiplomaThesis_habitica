@@ -28,6 +28,7 @@ dependencies {
     testImplementation (
             "com.codeborne:selenide:7.16.2",
             "org.junit.jupiter:junit-jupiter:5.14.3",
+            "io.qameta.allure:allure-junit5:2.34.0",
             'org.slf4j:slf4j-simple:2.0.18',
             'commons-io:commons-io:2.22.0',
             'org.assertj:assertj-core:3.27.7',
