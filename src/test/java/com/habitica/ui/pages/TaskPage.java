@@ -35,7 +35,7 @@ public class TaskPage {
         SelenideElement taskCard = taskCards(taskType).findBy(text(cardName));
         taskCard
                 .hover();
-        taskCard.$(".habitica-menu-dropdown")
+        taskCard.$(".habitica-menu-dropdown-toggle")
                 .click();
         taskCard.$(".edit-task-item")
                 .click();
