@@ -17,6 +17,6 @@ public class DynamicApiTestData {
         noteRandom = RandomUtils.getRandomString(120);
         difficultyRandom = RandomUtils.getRandomDifficulty();
         firstTagRandom = RandomUtils.getRandomTag();
-        secondTagRandom = RandomUtils.getRandomTag();
+        secondTagRandom = RandomUtils.getRandomTagExcluding(firstTagRandom);
     }
 }

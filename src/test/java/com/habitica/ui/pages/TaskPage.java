@@ -36,7 +36,6 @@ public class TaskPage {
         taskCard.$(".habitica-menu-dropdown")
                 .click();
         taskCard.$(".edit-task-item")
-                .shouldBe(visible)
                 .click();
     }
 

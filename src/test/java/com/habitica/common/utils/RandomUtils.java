@@ -4,6 +4,7 @@ import com.habitica.common.data.Difficulty;
 import com.habitica.common.data.TaskTags;
 
 import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
@@ -32,4 +33,10 @@ public class RandomUtils {
         return values[getRandomInt(0, values.length - 1)];
     }
 
+    public static TaskTags getRandomTagExcluding(TaskTags excluded) {
+        TaskTags[] values = Arrays.stream(TaskTags.values())
+                .filter(tag -> tag != excluded)
+                .toArray(TaskTags[]::new);
+        return values[getRandomInt(0, values.length - 1)];
+    }
 }

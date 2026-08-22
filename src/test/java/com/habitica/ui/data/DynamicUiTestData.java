@@ -28,7 +28,7 @@ public class DynamicUiTestData {
         secondListItem = RandomUtils.getRandomString(5);
         difficultyRandom = RandomUtils.getRandomDifficulty();
         firstTagRandom = RandomUtils.getRandomTag();
-        secondTagRandom = RandomUtils.getRandomTag();
+        secondTagRandom = RandomUtils.getRandomTagExcluding(firstTagRandom);
         repeatIntervalRandom = RandomUtils.getRandomInt(1, 50);
         dayRandom = RandomUtils.getRandomInt(1, 28);
         yearRandom = RandomUtils.getRandomInt(2020, 2029);
