@@ -9,8 +9,7 @@ import com.habitica.ui.pages.component.ToDoModalComponent;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TaskPage {
 
@@ -35,9 +34,10 @@ public class TaskPage {
         SelenideElement taskCard = taskCards(taskType).findBy(text(cardName));
         taskCard
                 .hover();
-        taskCard.$(".habitica-menu-dropdown-toggle")
-                .click();
+        executeJavaScript("arguments[0].click()",
+                taskCard.$(".habitica-menu-dropdown-toggle").toWebElement());
         taskCard.$(".edit-task-item")
+                .shouldBe(visible)
                 .click();
     }
 
