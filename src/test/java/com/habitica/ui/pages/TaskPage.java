@@ -30,17 +30,11 @@ public class TaskPage {
                 .findBy(text(taskType.dropdownTitle)).click();
     }
 
-    private void openEditMenu(TaskType taskType, String cardName) {
+    private void openEditModalMenu (TaskType taskType, String cardName) {
         SelenideElement taskCard = taskCards(taskType).findBy(text(cardName));
-        taskCard
-                .hover();
-        executeJavaScript("arguments[0].click()",
-                taskCard.$(".habitica-menu-dropdown-toggle").toWebElement());
-        taskCard.$(".edit-task-item")
-                .shouldBe(visible)
+        taskCard.$(".task-title")
                 .click();
     }
-
 
     @Step("Проверяем аватар на странице")
     public TaskPage checkAvatar() {
@@ -83,19 +77,19 @@ public class TaskPage {
 
     @Step("Открываем редактирование привычки: {cardName}")
     public HabitModalComponent editHabitTask(String cardName) {
-        openEditMenu(TaskType.HABIT, cardName);
+        openEditModalMenu(TaskType.HABIT, cardName);
         return new HabitModalComponent();
     }
 
     @Step("Открываем редактирование ежедневного дела: {cardName}")
     public DailyModalComponent editDailyTask(String cardName) {
-        openEditMenu(TaskType.DAILY, cardName);
+        openEditModalMenu(TaskType.DAILY, cardName);
         return new DailyModalComponent();
     }
 
     @Step("Открываем редактирование задачи: {cardName}")
     public ToDoModalComponent editToDoTask(String cardName) {
-        openEditMenu(TaskType.TODO, cardName);
+        openEditModalMenu(TaskType.TODO, cardName);
         return new ToDoModalComponent();
     }
 
