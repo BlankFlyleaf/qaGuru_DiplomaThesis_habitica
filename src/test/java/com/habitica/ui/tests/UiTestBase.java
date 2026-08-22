@@ -54,7 +54,7 @@ public class UiTestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        if (System.getProperty("SELENOID_URL") != null) {
+        if (ConfigProvider.config.getRemoteUrl() != null) {
             Attach.addVideo();
         }
         Selenide.closeWebDriver();
