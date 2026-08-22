@@ -33,6 +33,8 @@ public class TaskPage {
 
     private void openEditMenu(TaskType taskType, String cardName) {
         SelenideElement taskCard = taskCards(taskType).findBy(text(cardName));
+        taskCard
+                .hover();
         taskCard.$(".habitica-menu-dropdown")
                 .click();
         taskCard.$(".edit-task-item")
