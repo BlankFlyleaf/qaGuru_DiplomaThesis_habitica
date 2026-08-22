@@ -32,13 +32,8 @@ public class TaskPage {
 
     private void openEditModalMenu (TaskType taskType, String cardName) {
         SelenideElement taskCard = taskCards(taskType).findBy(text(cardName));
-        //taskCard.$(".task-title")
-        //        .click();
-
-        taskCard.$(".task-title").hover();
-        executeJavaScript("arguments[0].click()",
-                taskCard.$(".habitica-menu-dropdown").toWebElement());
-        taskCard.$(".edit-task-item").shouldBe(visible).click();
+        taskCard.$(".task-title")
+                .click();
     }
 
     @Step("Проверяем аватар на странице")
