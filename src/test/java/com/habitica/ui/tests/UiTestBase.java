@@ -12,6 +12,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
@@ -38,6 +39,11 @@ public class UiTestBase {
             capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                     "enableVNC", true,
                     "enableVideo", true
+            ));
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--lang=ru");
+            options.setExperimentalOption("prefs", Map.of(
+                    "intl.accept_languages", "ru,ru-RU"
             ));
             Configuration.browserCapabilities = capabilities;
         }
