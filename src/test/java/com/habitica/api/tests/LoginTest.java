@@ -1,6 +1,5 @@
 package com.habitica.api.tests;
 
-import com.habitica.api.models.login.LoginBodyModel;
 import com.habitica.api.models.login.LoginErrorResponseModel;
 import com.habitica.api.models.login.LoginSuccessfulResponseModel;
 import io.qameta.allure.*;
@@ -24,10 +23,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Успешная авторизация с учетной записью пользователя")
     @Tags({@Tag("ApiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void successfulLoginApiTest() {
-        LoginBodyModel data = new LoginBodyModel(username, password);
-
         LoginSuccessfulResponseModel loginResponse =
-                api.loginApi.successfulLogin(data);
+                api.loginApi.successfulLogin(username, password);
 
         step("Проверяем атрибуты ответа успешного запроса на логин", () -> {
             assertThat(loginResponse.data().id()).isEqualTo(userId);
@@ -42,10 +39,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Успешная авторизация с электронной почтой пользователя")
     @Tags({@Tag("ApiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void successfulMailLoginApiTest() {
-        LoginBodyModel data = new LoginBodyModel(mail, password);
-
         LoginSuccessfulResponseModel loginResponse =
-                api.loginApi.successfulLogin(data);
+                api.loginApi.successfulLogin(mail, password);
 
         step("Проверяем атрибуты ответа успешного запроса на логин", () -> {
             assertThat(loginResponse.data().id()).isEqualTo(userId);
@@ -60,10 +55,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Проверка ошибки при нарушении регистра в имени пользователя")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void wrongRegisterLoginApiTest() {
-        LoginBodyModel data = new LoginBodyModel(boldUsername, password);
-
         LoginErrorResponseModel loginResponse =
-                api.loginApi.simpleErrorLogin(data);
+                api.loginApi.simpleErrorLogin(boldUsername, password);
 
         step("Проверяем атрибуты ответа неуспешного запроса на логин", () -> {
             assertThat(loginResponse.error()).isEqualTo(authError);
@@ -77,10 +70,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Проверка валидации пустого значения в имени пользователя")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void emptyUsernameValidationApiTest() {
-        LoginBodyModel data = new LoginBodyModel("", password);
-
         LoginErrorResponseModel loginResponse =
-                api.loginApi.detailedErrorLogin(data);
+                api.loginApi.detailedErrorLogin("", password);
 
         step("Проверяем атрибуты ответа неуспешного запроса на логин", () -> {
             assertThat(loginResponse.error()).isEqualTo(badRequestError);
@@ -97,10 +88,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Проверка валидации null значения в имени пользователя")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void nullUsernameValidationApiTest() {
-        LoginBodyModel data = new LoginBodyModel(null, password);
-
         LoginErrorResponseModel loginResponse =
-                api.loginApi.detailedErrorLogin(data);
+                api.loginApi.detailedErrorLogin(null, password);
 
         step("Проверяем атрибуты ответа неуспешного запроса на логин", () -> {
             assertThat(loginResponse.error()).isEqualTo(badRequestError);
@@ -117,10 +106,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Проверка валидации превышения символов в имени пользователя")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void sizeUsernameValidationApiTest() {
-        LoginBodyModel data = new LoginBodyModel(longUsername, password);
-
         LoginErrorResponseModel loginResponse =
-                api.loginApi.simpleErrorLogin(data);
+                api.loginApi.simpleErrorLogin(longUsername, password);
 
         step("Проверяем атрибуты ответа неуспешного запроса на логин", () -> {
             assertThat(loginResponse.error()).isEqualTo(authError);
@@ -134,10 +121,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Проверка валидации кириллических символов в имени пользователя")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void languageUsernameValidationApiTest() {
-        LoginBodyModel data = new LoginBodyModel(cyrillicUsername, password);
-
         LoginErrorResponseModel loginResponse =
-                api.loginApi.simpleErrorLogin(data);
+                api.loginApi.simpleErrorLogin(cyrillicUsername, password);
 
         step("Проверяем атрибуты ответа неуспешного запроса на логин", () -> {
             assertThat(loginResponse.error()).isEqualTo(authError);
@@ -151,10 +136,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Проверка валидации пустого значения пароля")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void emptyPasswordValidationApiTest() {
-        LoginBodyModel data = new LoginBodyModel(username, "");
-
         LoginErrorResponseModel loginResponse =
-                api.loginApi.detailedErrorLogin(data);
+                api.loginApi.detailedErrorLogin(username, "");
 
         step("Проверяем атрибуты ответа неуспешного запроса на логин", () -> {
             assertThat(loginResponse.error()).isEqualTo(badRequestError);
@@ -171,10 +154,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Проверка валидации null значения пароля")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void nullPasswordValidationApiTest() {
-        LoginBodyModel data = new LoginBodyModel(username, null);
-
         LoginErrorResponseModel loginResponse =
-                api.loginApi.detailedErrorLogin(data);
+                api.loginApi.detailedErrorLogin(username, null);
 
         step("Проверяем атрибуты ответа неуспешного запроса на логин", () -> {
             assertThat(loginResponse.error()).isEqualTo(badRequestError);
@@ -191,10 +172,8 @@ public class LoginTest extends ApiTestBase {
     @DisplayName("Проверка валидации длины пароля")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void sizePasswordValidationApiTest() {
-        LoginBodyModel data = new LoginBodyModel(username, shortPassword);
-
         LoginErrorResponseModel loginResponse =
-                api.loginApi.simpleErrorLogin(data);
+                api.loginApi.simpleErrorLogin(username, shortPassword);
 
         step("Проверяем атрибуты ответа неуспешного запроса на логин", () -> {
             assertThat(loginResponse.error()).isEqualTo(authError);

@@ -12,9 +12,9 @@ import static io.restassured.RestAssured.given;
 public class LoginApiClient {
 
     @Step("Отправляем запрос на логин в систему с корректными данными")
-    public LoginSuccessfulResponseModel successfulLogin(LoginBodyModel data) {
+    public LoginSuccessfulResponseModel successfulLogin(String username, String password) {
         return given(loginRequest)
-                .body(data)
+                .body(new LoginBodyModel(username, password))
                 .when()
                 .post("/user/auth/local/login")
                 .then()
@@ -23,9 +23,9 @@ public class LoginApiClient {
     }
 
     @Step("Отправляем некорректный запрос на логин с простым форматированием ошибки")
-    public LoginErrorResponseModel simpleErrorLogin(LoginBodyModel data) {
+    public LoginErrorResponseModel simpleErrorLogin(String username, String password) {
         return given(loginRequest)
-                .body(data)
+                .body(new LoginBodyModel(username, password))
                 .when()
                 .post("/user/auth/local/login")
                 .then()
@@ -34,9 +34,9 @@ public class LoginApiClient {
     }
 
     @Step("Отправляем некорректный запрос на логин с детализированным форматированием ошибки")
-    public LoginErrorResponseModel detailedErrorLogin(LoginBodyModel data) {
+    public LoginErrorResponseModel detailedErrorLogin(String username, String password) {
         return given(loginRequest)
-                .body(data)
+                .body(new LoginBodyModel(username, password))
                 .when()
                 .post("/user/auth/local/login")
                 .then()

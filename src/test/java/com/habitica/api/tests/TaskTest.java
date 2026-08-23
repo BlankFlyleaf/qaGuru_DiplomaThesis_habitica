@@ -1,6 +1,5 @@
 package com.habitica.api.tests;
 
-import com.habitica.api.models.login.LoginBodyModel;
 import com.habitica.api.models.login.LoginSuccessfulResponseModel;
 import com.habitica.api.models.tasks.TaskBaseBodyModel;
 import com.habitica.api.models.tasks.TaskBaseResponseModel;
@@ -31,10 +30,8 @@ public class TaskTest extends ApiTestBase {
     @DisplayName("Успешное создание задачи")
     @Tags({@Tag("ApiTests"), @Tag("Smoke"), @Tag("Regression")})
     public void successfulCreateTaskApiTest(TaskType taskType) {
-        LoginBodyModel loginData = new LoginBodyModel(username, password);
-
         LoginSuccessfulResponseModel loginResponse =
-                api.loginApi.successfulLogin(loginData);
+                api.loginApi.successfulLogin(username, password);
 
         String idUser = loginResponse.data().id();
         String apiToken = loginResponse.data().apiToken();
@@ -69,10 +66,8 @@ public class TaskTest extends ApiTestBase {
     @DisplayName("Успешное удаление задачи")
     @Tags({@Tag("ApiTests"), @Tag("Regression")})
     public void successfulDeleteTaskApiTest(TaskType taskType) {
-        LoginBodyModel loginData = new LoginBodyModel(username, password);
-
         LoginSuccessfulResponseModel loginResponse =
-                api.loginApi.successfulLogin(loginData);
+                api.loginApi.successfulLogin(username, password);
 
         String idUser = loginResponse.data().id();
         String apiToken = loginResponse.data().apiToken();

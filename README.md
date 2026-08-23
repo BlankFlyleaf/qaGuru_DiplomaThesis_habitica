@@ -126,7 +126,7 @@
 
 ---
 
-## 🔧 CI/CD — Jenkins
+## 🔧 CI/CD — [Jenkins](https://jenkins.qa.guru/job/C41-blankflyleaf-Diplom-Habitica/)
 
 Сборка настроена как **Freestyle Job** с параметрами:
 
@@ -149,7 +149,7 @@
 
 ## 📊 Отчётность
 
-### Allure Report
+### [Allure Report](https://jenkins.qa.guru/job/C41-blankflyleaf-Diplom-Habitica/allure/)
 
 ```bash
 ./gradlew allureReport
@@ -188,7 +188,7 @@
   <img src="media/gif-1.gif" alt="Allure Report Demo" width="70%"/>
 </div>
 
-### Allure TestOps
+### [Allure TestOps](https://allure.qa.guru/project/5359/test-cases?treeId=0)
 
 Все запуски автоматически попадают в **Allure TestOps**. Каждый прогон из Jenkins создаёт Launch с полным набором результатов.
 
@@ -209,7 +209,7 @@
   </a>
 </div>
 
-### 🔗 Jira
+### 🔗 [Jira](https://jira.qa.guru/browse/MUL-38)
 
 Настроена интеграция с Jira для отслеживания дефектов и связи тест-кейсов с задачами:
 
