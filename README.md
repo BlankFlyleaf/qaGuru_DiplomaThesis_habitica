@@ -171,6 +171,8 @@
 - Логи консоли браузера
 - Тела HTTP-запросов и ответов (REST Assured) с кастомным форматированием
 
+#### Примеры других страниц
+
 <div align="center">
   <a href="media/Allure-2.png">
     <img src="media/Allure-2.png" alt="Allure Suites" width="49%"/>
@@ -178,6 +180,12 @@
   <a href="media/Allure-3.png">
     <img src="media/Allure-3.png" alt="Allure Test Detail" width="49%"/>
   </a>
+</div>
+
+#### Пример видео-прогона теста
+
+<div align="center">
+  <img src="media/gif-1.gif" alt="Allure Report Demo" width="70%"/>
 </div>
 
 ### Allure TestOps
